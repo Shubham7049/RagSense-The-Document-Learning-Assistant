@@ -1,8 +1,8 @@
-# RAG Sense 🧠
+# EduQuery 🧠
 
 > **Understand your documents. Ask anything.**
 
-**RAG Sense** is a production-grade, modular **RAG-Based Document Learning Assistant** built with Python, LangChain, ChromaDB, Sentence Transformers, Groq LLM, and Streamlit. It delivers a conversational ChatGPT-like learning experience with strict per-user data isolation, multi-format document ingestion, persistent SQLite chat threads, and intelligent dual-tier history retrieval.
+**EduQeury** is a production-grade, modular **RAG-Based Document Learning Assistant** built with Python, LangChain, ChromaDB, Sentence Transformers, Groq LLM, and Streamlit. It delivers a conversational ChatGPT-like learning experience with strict per-user data isolation, multi-format document ingestion, persistent SQLite chat threads, and intelligent dual-tier history retrieval.
 
 ---
 
