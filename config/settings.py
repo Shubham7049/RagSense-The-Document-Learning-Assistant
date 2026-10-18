@@ -73,6 +73,23 @@ class Settings(BaseSettings):
         case_sensitive=False,
     )
 
+    @field_validator("groq_api_key", mode="before")
+    @classmethod
+    def resolve_groq_api_key(cls, v: str | None) -> str | None:
+        """Resolve Groq API key, falling back to Streamlit secrets if running in cloud."""
+        if v and str(v).strip() and str(v).strip() != "your_groq_api_key_here":
+            return str(v).strip()
+        try:
+            import streamlit as st
+            if hasattr(st, "secrets"):
+                if "GROQ_API_KEY" in st.secrets:
+                    return str(st.secrets["GROQ_API_KEY"]).strip()
+                if "groq_api_key" in st.secrets:
+                    return str(st.secrets["groq_api_key"]).strip()
+        except Exception:
+            pass
+        return v
+
     @field_validator("database_path", mode="before")
     @classmethod
     def resolve_database_path(cls, v: str | Path | None) -> Path:
